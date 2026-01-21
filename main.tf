@@ -206,7 +206,7 @@ resource "aws_codepipeline" "terraform_pipeline" {
 
       configuration = {
         ConnectionArn    = aws_codestarconnections_connection.github.arn
-        FullRepositoryId = "unuste37/terraform-cicd-25dec"
+        FullRepositoryId = "MayankN9/terraform_ci_cd"   # <-- updated to your repo
         BranchName       = "main"
       }
     }
@@ -228,4 +228,3 @@ resource "aws_codepipeline" "terraform_pipeline" {
     }
   }
 }
-
