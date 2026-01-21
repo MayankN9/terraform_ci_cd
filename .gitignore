@@ -11,3 +11,7 @@
 
 # Crash logs
 crash.log
+# Vendor/binaries
+awscliv2.zip
+aws/
+*.zip
