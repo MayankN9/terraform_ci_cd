@@ -15,3 +15,7 @@ crash.log
 awscliv2.zip
 aws/
 *.zip
+
+# Vendor/binaries
+awscliv2.zip
+*.zip
