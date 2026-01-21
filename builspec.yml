@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Installing Terraform..."
+      # Tip: Use a stable version like 1.5.0 if 1.14 is too new/unstable
+      - curl -O https://releases.hashicorp.com/terraform/1.14.3/terraform_1.14.3_linux_amd64.zip
+      - unzip terraform_1.14.3_linux_amd64.zip
+      - mv terraform /usr/local/bin/
+  build:
+    commands:
+      - echo "Starting Terraform Build..."
+      - export TF_LOG=ERROR # This will show you the ACTUAL error in CodeBuild logs
+      - terraform init -input=false
+      - terraform validate
+      # Always use a plan file in CI/CD for better reliability
+      - terraform plan -out=tfplan
+      - terraform apply -auto-approve tfplan
+artifacts:
+  files:
+    - '**/*'
